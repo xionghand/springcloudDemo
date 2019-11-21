@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.StockDao">
+    <select id="queryStockByGoodsId" resultType="int" parameterType="int">
+        select good_Id from sc_stock where good_Id=#{goodId}
+    </select>
+
+    <update id="updateStock" parameterType="map">
+        update sc_stock set stock_Number=stock_Number+#{stockNumber} where good_Id={goodId}
+    </update>
+
+</mapper>
+
+    

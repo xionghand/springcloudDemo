@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<table align="center" border="1" style="border-color: red;text-align: center">
+    <tr>
+        <th>编号</th>
+        <th>商品名</th>
+        <th>商品编号</th>
+        <th>商品价格</th>
+        <th>商品类型</th>
+        <th>购买</th>
+    </tr>
+    <#list list as l>
+    <tr>
+        <td>${l.id!''}</td>
+        <td>${l.goodName!''}</td>
+        <td>${l.goodId!''}</td>
+        <td>${l.goodPrice!''}</td>
+        <td>${l.goodType!''}</td>
+        <td><a href="#">点击</a></td>
+    </tr>
+
+
+</#list>
+
+</table>
+</body>
+</html>

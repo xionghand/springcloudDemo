@@ -8,6 +8,15 @@ public class Goods implements Serializable {
     private String goodId;
     private Double goodPrice;
     private Integer goodType;
+    private Stock stock;
+
+    public Stock getStock() {
+        return stock;
+    }
+
+    public void setStock(Stock stock) {
+        this.stock = stock;
+    }
 
     @Override
     public String toString() {
@@ -17,6 +26,7 @@ public class Goods implements Serializable {
                 ", goodId='" + goodId + '\'' +
                 ", goodPrice=" + goodPrice +
                 ", goodType=" + goodType +
+                ", stock=" + stock +
                 '}';
     }
 

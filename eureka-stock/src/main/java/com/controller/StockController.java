@@ -16,8 +16,8 @@ public class StockController {
     @Autowired
     private StockService stockService;
     @ResponseBody
-    @RequestMapping("query")
-    public Map<String,Object> queryByGoodId(@RequestParam("goodId")int goodId){
+    @RequestMapping("/query")
+    public Map<String,Object> queryByGoodId(@RequestParam("id")int goodId){
         int index = stockService.queryStockByGoodsId(goodId);
         Map<String,Object> map = new HashMap<>();
         if (index!=0){
@@ -30,7 +30,7 @@ public class StockController {
 
     @ResponseBody
     @RequestMapping("/updateStockNumber")
-    public Map<String,Object> updateStockNumber(@RequestParam("goodId")int goodId,@RequestParam("stockNumber")int stockNumber){
+    public Map<String,Object> updateStockNumber(@RequestParam("id")int goodId,@RequestParam("stockNumber")int stockNumber){
         Map<String,Object> map = new HashMap<>();
         int index = stockService.updateStock(goodId,stockNumber);
         if (index>0){

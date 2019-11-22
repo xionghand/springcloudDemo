@@ -5,6 +5,7 @@ import com.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -23,6 +24,14 @@ public class GoodsController {
         ModelAndView mv = new ModelAndView();
         mv.addObject("list", list);
         mv.setViewName("show");
+        return mv;
+    }
+
+    @RequestMapping("/buyGoods")
+    public ModelAndView buyGoods(@RequestParam("id") int id){
+        ModelAndView mv = new ModelAndView();
+        goodsService.buyGoods(id);
+        mv.setViewName("redirect:toshow");
         return mv;
     }
 }

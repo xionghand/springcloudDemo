@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+
 public interface GoodsService {
     public List<Goods> queryAll();
+    public int buyGoods(int goodId);
 }

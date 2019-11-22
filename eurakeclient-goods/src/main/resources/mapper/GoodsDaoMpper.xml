@@ -3,8 +3,20 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.GoodsDao">
-    <select id="queryAll" resultType="com.pojo.Goods">
-        select * from sc_goods
+    <resultMap id="goodMap" type="com.pojo.Goods">
+        <id property="id" column="id"></id>
+        <result property="goodName" column="good_Name"></result>
+        <result property="goodId" column="good_Id"></result>
+        <result property="goodPrice" column="good_Price"></result>
+        <result property="goodType" column="good_Type"></result>
+        <association property="stock" javaType="com.pojo.Stock">
+            <id property="id" column="id"></id>
+            <result property="stockNumber" column="stock_Number"></result>
+            <result property="stockLoc" column="stock_Loc"></result>
+        </association>
+    </resultMap>
+    <select id="queryAll" resultMap="goodMap">
+        select * from sc_goods g,sc_stock s where g.id=s.good_Id
     </select>
 
 </mapper>

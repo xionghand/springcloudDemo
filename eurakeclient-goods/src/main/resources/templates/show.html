@@ -12,16 +12,18 @@
         <th>商品编号</th>
         <th>商品价格</th>
         <th>商品类型</th>
+        <th>商品库存</th>
         <th>购买</th>
     </tr>
     <#list list as l>
     <tr>
-        <td>${l.id!''}</td>
+        <td name="id">${l.id!''}</td>
         <td>${l.goodName!''}</td>
-        <td>${l.goodId!''}</td>
+        <td name="goodId">${l.goodId!''}</td>
         <td>${l.goodPrice!''}</td>
         <td>${l.goodType!''}</td>
-        <td><a href="#">点击</a></td>
+        <td>${l.stock.stockNumber!''}</td>
+        <td><a href="/goods/buyGoods?id=${l.id!''}">点击</a></td>
     </tr>
 
 

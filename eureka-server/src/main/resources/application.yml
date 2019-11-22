@@ -3,7 +3,7 @@ spring:
     name: eureka-server
 eureka:
   instance:
-    hostname: 192.168.160.1
+    hostname: 192.168.87.1
   client:
     #由于自己就是服务器，所以不需要注册到自己
     register-with-eureka: false

@@ -2,7 +2,7 @@ server:
   port: 8081
 eureka:
   instance:
-    hostname: 192.168.160.1
+    hostname: 192.168.87.1
   client:
     service-url:
       defaultZone: http://${eureka.instance.hostname}:8080/eureka/
@@ -10,10 +10,10 @@ spring:
   application:
     name: eureka-client
   datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:orcl
     username: test
     password: root
-    driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@localhost:1521:orcl
   freemarker:
     suffix: .html
     settings:
@@ -23,3 +23,25 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
+#防止ribbon超时
+ribbon:
+  ReadTimeout: 4000
+  ConnectTimeout: 4000
+#熔断器超时
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+
+feign:
+  hystrix:
+    enabled: true
+
+

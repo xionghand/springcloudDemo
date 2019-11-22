@@ -8,7 +8,7 @@
     </select>
 
     <update id="updateStock" parameterType="map">
-        update sc_stock set stock_Number=stock_Number+#{stockNumber} where good_Id={goodId}
+        update sc_stock set stock_Number=stock_Number-#{stockNumber} where good_Id=#{goodId}
     </update>
 
 </mapper>
